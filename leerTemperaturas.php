@@ -20,11 +20,3 @@ function leerTemperaturas($temperatura) {
     while ($otraTemp=="s");
     return $misTemperaturas;
 }
-
-/*PROGRAMA PRINCIPAL*/
-/*FLOAR $temp ARRAY $arreglo*/
-echo "Ingrese la temperatura: ";
-$temp=trim(fgets(STDIN));
-$arreglo=leerTemperaturas($temp);
-print_r($arreglo);
-echo "\n FIN";

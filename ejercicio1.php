@@ -27,14 +27,30 @@ function leerTemperaturas($temperatura) {
 function listarTemperaturas($misTemperaturas) {
     //INT $i
     for ($i=0; $i<count($misTemperaturas); $i++) { 
-        echo ($i+1).") ". $misTemperaturas[$i]. "\n";
+        echo ($i+1).") ". $misTemperaturas[$i]. " °C\n";
     }
 }
 
+/**Entra un arreglo formado por temperaturas y retorna
+ * @param ARRAY $misTemperaturas
+ * @return FLOAT
+ */
+function promTemperaturas($misTemperaturas) {
+    //INT $i FLOAT $promedio, $sumaTemp
+    $sumaTemp=0;
+    for ($i=0; $i<count($misTemperaturas) ; $i++) { 
+        $sumaTemp=$sumaTemp+$misTemperaturas[$i];
+    }
+    $promedio=$sumaTemp/count($misTemperaturas);
+    return $promedio;
+}
+
 /*PROGRAMA PRINCIPAL*/
-/*FLOAR $temp ARRAY $arreglo*/
+/*FLOAR $temp, $prom ARRAY $arreglo*/
 echo "Ingrese la temperatura: ";
 $temp=trim(fgets(STDIN));
 $arreglo=leerTemperaturas($temp);
 listarTemperaturas($arreglo);
-echo "\n FIN";
+$prom=promTemperaturas($arreglo);
+echo "Promedio de temperaturas: ". $prom. " °C";
+echo "\nFIN";
